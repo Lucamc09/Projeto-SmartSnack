@@ -1,41 +1,41 @@
 <?php
-require ('conexao.php');
+require('conexao.php');
 
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
 
-    // Função para listar todos os registros do banco de dados
     function listarRegistros($conexao, $id) {
         $sql = "SELECT * FROM Pedidos WHERE id = $id";
         $stmt = $conexao->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    $registros = listarRegistros($conexao, $id);
+    foreach ($registros as $registro) {
+        if ($registro['id'] == $id) {
+            $aux = true;
         }
-        // Listar registros
-        $registros = listarRegistros($conexao, $id);
-        foreach ($registros as $registro) {
-            if ($registro['id'] == $id) {
-                $aux = true;
-            }
-        }
+    }
 }
 ?>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <head>
     <title>Editar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Editar Pedido</h1>
-    <?php if (isset($aux)) : ?>
-        <form action="alterar_dados.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $registro['id']; ?>">
-            <br><br>
-            <label for="exampleinput">Produto:</label><br>
-            <select id="Produto" name="produto" class="form-control border border-dark rounded-0 col col-4">
-            <option value="Porção de Coxinha" <?php $valor = ($registro['produto'] == 'Porção de Coxinha')?'selected': ''; echo $valor; ?>>Porção de Coxinha</option>
-            <option value="Pão de Queijo" <?php $valor = ($registro['produto'] == 'Pão de Queijo')?'selected': ''; echo $valor; ?>>Pão de Queijo</option>
-            <option value="Pão de Queijo Recheado" <?php $valor = ($registro['produto'] == 'Pão de Queijo Recheado')?'selected': ''; echo $valor; ?>>Pão de Queijo Recheado</option>
+    <div class="container">
+        <h1>Editar Pedido</h1>
+        <?php if (isset($aux)) : ?>
+            <form action="alterar_dados.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $registro['id']; ?>">
+                <div class="form-group">
+                    <label for="Produto">Produto:</label><br>
+                    <select id="Produto" name="produto" class="form-control border border-dark rounded-0 col col-4">
+                        <option value="Porção de Coxinha" <?php echo ($registro['produto'] == 'Porção de Coxinha') ? 'selected' : ''; ?>>Porção de Coxinha</option>
+                        <option value="Pão de Queijo" <?php echo ($registro['produto'] == 'Pão de Queijo') ? 'selected' : ''; ?>>Pão de Queijo</option>
+                        <option value="Pão de Queijo Recheado" <?php $valor = ($registro['produto'] == 'Pão de Queijo Recheado')?'selected': ''; echo $valor; ?>>Pão de Queijo Recheado</option>
             <option value="Hamburguer" <?php $valor = ($registro['produto'] == 'Hamburguer')?'selected': ''; echo $valor; ?>>Hamburguer</option>
             <option value="Cachorro Quente" <?php $valor = ($registro['produto'] == 'Cachorro Quente')?'selected': ''; echo $valor; ?>>Cachorro Quente</option>
 
@@ -53,14 +53,18 @@ if (isset($_GET["id"])) {
             <option value="Suco Natural" <?php $valor = ($registro['produto'] == 'Suco Natural')?'selected': ''; echo $valor; ?>>Suco Natural</option>
             <option value="Refrigerante" <?php $valor = ($registro['produto'] == 'Refrigerante')?'selected': ''; echo $valor; ?>>Refrigerante</option>
             <option value="Água" <?php $valor = ($registro['produto'] == 'Água')?'selected': ''; echo $valor; ?>>Água</option>
-        </select> <br><br>
-            <label>Preco:</label><br>
-            <input type="text" name="preco" value="<?php echo $registro['preco']; ?>" required>
-            <br><br><br>
-            <input type="submit" value="Salvar">
-        </form>
-    <?php else : ?>
-        <p>Usuario não encontrado.</p>
-    <?php endif; ?>
+                        <!-- Adicione as outras opções aqui -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantidade">Quantidade:</label><br>
+                    <input type="text" id="quantidade" name="quantidade" value="<?php echo $registro['quantidade']; ?>" required>
+                </div>
+                <input type="submit" value="Salvar" class="btn btn-primary">
+            </form>
+        <?php else : ?>
+            <p>Usuário não encontrado.</p>
+        <?php endif; ?>
+    </div>
 </body>
 </html>
