@@ -79,13 +79,13 @@
             return estados[indice];
         }
 
-        // Event listener para o botão de tempo de espera
+       
         document.getElementById('btnTempoEspera').addEventListener('click', function() {
             var tempoEspera = calcularTempoEspera();
             alert('Tempo de Espera estimado: ' + tempoEspera + ' minutos');
         });
 
-        // Event listener para o botão de estado do pedido
+        
         document.getElementById('btnEstadoPedido').addEventListener('click', function() {
             var estadoPedido = alternarEstadoPedido();
             alert('Estado do Pedido: ' + estadoPedido);
