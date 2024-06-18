@@ -59,7 +59,26 @@
             <button type="submit" class="btn btn-primary">Enviar</button>
             <button type="reset" class="btn btn-danger">Limpar</button>
             <a href="index.php" class="btn btn-warning">Voltar</a>
+<button type="button" class="btn btn-info" id="btnTempoEspera">Ver Tempo de Espera</button>
+        </form>
+    </div>
 
+    <script>
+        // Função para calcular um tempo de espera aleatório
+        function calcularTempoEspera() {
+            var min = 15; // Tempo mínimo em minutos
+            var max = 45; // Tempo máximo em minutos
+            var tempoEspera = Math.floor(Math.random() * (max - min + 1)) + min;
+            return tempoEspera;
+        }
+
+        // Event listener para o botão de tempo de espera
+        document.getElementById('btnTempoEspera').addEventListener('click', function() {
+            var tempoEspera = calcularTempoEspera();
+            alert('Tempo de Espera estimado: ' + tempoEspera + ' minutos');
+        });
+    </script>
+    
         </form>
     </div>
 </body>
