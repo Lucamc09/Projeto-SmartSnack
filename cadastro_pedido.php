@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Cantina</title>
+    <title>Cadastro de Pedido</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
         body {
@@ -31,69 +31,40 @@
         <h3>Cadastro de Pedido:</h3>
         <form action="inserir_dados.php" method="post">
             <div class="form-group">
-                <label for="Produto">Produto:</label><br>
-                <select id="Produto" name="produto" class="form-control">
-                    <option value="Porção de Coxinha">Porção de Coxinha</option>
-                    <option value="Pão de Queijo">Pão de Queijo</option>
-                    <option value="Pão de Queijo Recheado">Pão de Queijo Recheado</option>
-                    <option value="Hamburguer">Hamburguer</option>
-                    <option value="Cachorro Quente">Cachorro Quente</option>
-                    <option value="Pirulito">Pirulito</option>
-                    <option value="Chocolate Trento">Chocolate Trento</option>
-                    <option value="Ouro Branco">Ouro Branco</option>
-                    <option value="Halls">Halls</option>
-                    <option value="Pipoca Doce">Pipoca Doce</option>
-                    <option value="Mentos">Mentos</option>
-                    <option value="Batata Frita">Batata Frita</option>
-                    <option value="Prato Feito">Prato Feito</option>
-                    <option value="Macarrão">Macarrão</option>
-                    <option value="Suco Natural">Suco Natural</option>
-                    <option value="Refrigerante">Refrigerante</option>
-                    <option value="Água">Água</option>
+                <label for="produto_id">Produto:</label><br>
+                <select id="produto_id" name="produto_id" class="form-control">
+                    <?php
+                        require('conexao.php');
+                        $sql = "SELECT id, produto FROM Produtos";
+                        foreach ($conexao->query($sql) as $row) {
+                            echo '<option value="' . $row['id'] . '">' . $row['produto'] . '</option>';
+                        }
+                    ?>
                 </select>
             </div>
             <div class="form-group">
                 <label for="quantidade">Quantidade:</label>
-                <input type="text" class="form-control" required name="quantidade" id="quantidade" placeholder="Informe a quantidade">
+                <input type="number" class="form-control" required name="quantidade" id="quantidade" placeholder="Informe a quantidade">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
             <button type="reset" class="btn btn-danger">Limpar</button>
             <a href="index.php" class="btn btn-warning">Voltar</a>
-<button type="button" class="btn btn-info" id="btnTempoEspera">Ver Tempo de Espera</button>
+            <button type="button" class="btn btn-info" id="btnTempoEspera">Ver Tempo de Espera</button>
         </form>
     </div>
 
-  <script>
-        // Função para calcular um tempo de espera aleatório
+    <script>
         function calcularTempoEspera() {
-            var min = 15; // Tempo mínimo em minutos
-            var max = 45; // Tempo máximo em minutos
+            var min = 15;
+            var max = 45;
             var tempoEspera = Math.floor(Math.random() * (max - min + 1)) + min;
             return tempoEspera;
         }
 
-        // Função para alternar o estado do pedido
-        function alternarEstadoPedido() {
-            var estados = ["Confirmando pagamento", "Preparando pedido", "Pedido pronto para retirada"];
-            var indice = Math.floor(Math.random() * estados.length);
-            return estados[indice];
-        }
-
-       
         document.getElementById('btnTempoEspera').addEventListener('click', function() {
             var tempoEspera = calcularTempoEspera();
             alert('Tempo de Espera estimado: ' + tempoEspera + ' minutos');
         });
-
-        
-        document.getElementById('btnEstadoPedido').addEventListener('click', function() {
-            var estadoPedido = alternarEstadoPedido();
-            alert('Estado do Pedido: ' + estadoPedido);
-        });
     </script>
-
-    
-        </form>
-    </div>
 </body>
 </html>
