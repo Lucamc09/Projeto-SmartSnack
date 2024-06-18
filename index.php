@@ -41,35 +41,40 @@
         <a href="cardapio.php" class="btn btn-info">Visualizar Cardápio</a>
         <br><br>
         <?php
-            require ('conexao.php');
-            echo '<br><br>';
-            
-            // Função para listar todos os registros do banco de dados
+            require('conexao.php');
+
             function listarRegistros($conexao) {
-                $sql = "SELECT * FROM Pedidos";
+                $sql = "SELECT p.id, pr.produto, p.quantidade, pr.preco 
+                        FROM Pedidos p
+                        JOIN Produtos pr ON p.produto_id = pr.id";
                 $stmt = $conexao->query($sql);
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
-            
-            // Listar registros
+
             $registros = listarRegistros($conexao);
-            
-            // Exibindo os dados em uma tabela
+            $valorTotal = 0;
+
             echo "<table class='table table-striped'>
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Produto</th>
                             <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                            <th>Subtotal</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>";
             foreach ($registros as $registro) {
+                $subtotal = $registro['quantidade'] * $registro['preco'];
+                $valorTotal += $subtotal;
                 echo "<tr>
                         <td>" . $registro['id'] . "</td>
                         <td>" . $registro['produto'] . "</td>
                         <td>" . $registro['quantidade'] . "</td>
+                        <td>" . number_format($registro['preco'], 2, ',', '.') . "</td>
+                        <td>" . number_format($subtotal, 2, ',', '.') . "</td>
                         <td>
                             <a href='edit.php?id=" . $registro['id'] . "' class='btn btn-warning'>Editar</a>
                             <a href='deletar_dados.php?id=" . $registro['id'] . "' class='btn btn-danger'>Excluir</a>
@@ -77,6 +82,7 @@
                     </tr>";
             }
             echo "</tbody></table>";
+            echo "<h3>Valor Total das Compras: R$ " . number_format($valorTotal, 2, ',', '.') . "</h3>";
         ?>
     </div>
 </body>
