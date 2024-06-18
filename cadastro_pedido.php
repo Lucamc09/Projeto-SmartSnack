@@ -63,7 +63,7 @@
         </form>
     </div>
 
-    <script>
+  <script>
         // Função para calcular um tempo de espera aleatório
         function calcularTempoEspera() {
             var min = 15; // Tempo mínimo em minutos
@@ -72,12 +72,26 @@
             return tempoEspera;
         }
 
+        // Função para alternar o estado do pedido
+        function alternarEstadoPedido() {
+            var estados = ["Confirmando pagamento", "Preparando pedido", "Pedido pronto para retirada"];
+            var indice = Math.floor(Math.random() * estados.length);
+            return estados[indice];
+        }
+
         // Event listener para o botão de tempo de espera
         document.getElementById('btnTempoEspera').addEventListener('click', function() {
             var tempoEspera = calcularTempoEspera();
             alert('Tempo de Espera estimado: ' + tempoEspera + ' minutos');
         });
+
+        // Event listener para o botão de estado do pedido
+        document.getElementById('btnEstadoPedido').addEventListener('click', function() {
+            var estadoPedido = alternarEstadoPedido();
+            alert('Estado do Pedido: ' + estadoPedido);
+        });
     </script>
+
     
         </form>
     </div>
