@@ -86,6 +86,26 @@
             return $stmt->execute();
         }
     }
+
+         // Função para calcular o valor total da compra
+        function calcularTotalCompra($conexao, $produto, $quantidade)
+        {
+            $sql_preco = "SELECT preço FROM Produtos WHERE produto = :produto";
+            $stmt_preco = $conexao->prepare($sql_preco);
+            $stmt_preco->bindParam(':produto', $produto);
+            $stmt_preco->execute();
+            $resultado_preco = $stmt_preco->fetch(PDO::FETCH_ASSOC);
+
+            if ($resultado_preco) {
+                $preco = $resultado_preco['preço'];
+                $totalCompra = $preco * $quantidade;
+                return $totalCompra;
+            } else {
+                return false;
+            }
+        }
+    }
+
     ?>
 
     <div class="message">
