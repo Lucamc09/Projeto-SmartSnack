@@ -15,7 +15,7 @@
             function listarRegistros($conexao, $ordenarPorPreco = false) {
                 $sql = "SELECT * FROM Produtos";
                 if ($ordenarPorPreco) {
-                    $sql .= " ORDER BY preço DESC";
+                    $sql .= " ORDER BY preco DESC";
                 }
                 $stmt = $conexao->query($sql);
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -38,7 +38,7 @@
                 echo "<tr>";
                 echo "<td>" . htmlspecialchars($registro['id']) . "</td>";
                 echo "<td>" . htmlspecialchars($registro['produto']) . "</td>";
-                echo "<td>" . htmlspecialchars($registro['preço']) . "</td>";
+                echo "<td>" . htmlspecialchars($registro['preco']) . "</td>";
                 echo "</tr>";
             }
             echo "</table>";
