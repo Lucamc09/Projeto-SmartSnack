@@ -1,33 +1,34 @@
-create database bd_cantina;
-use bd_cantina;
+CREATE DATABASE bd_cantina;
+USE bd_cantina;
+
+CREATE TABLE Produtos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    produto VARCHAR(100) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL
+);
+
 CREATE TABLE Pedidos (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    produto VARCHAR(100) NOT NULL,
-    quantidade int(3) NOT NULL
-);
-create table Produtos(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    produto VARCHAR(100) NOT NULL,
-    preço int(3) NOT NULL
+    produto_id INT NOT NULL,
+    quantidade INT NOT NULL,
+    FOREIGN KEY (produto_id) REFERENCES Produtos(id)
 );
 
-
-select * from produtos;
-insert into Produtos values ('default','PorçãodeCoxinha','7');
-INSERT INTO Produtos VALUES ('default', 'PorçãoDeCoxinha', '4');
-INSERT INTO Produtos VALUES ('default', 'PãodeQueijo', '8');
-INSERT INTO Produtos VALUES ('default', 'PãodeQueijoRecheado', '5');
-INSERT INTO Produtos VALUES ('default', 'Hamburguer', '9');
-INSERT INTO Produtos VALUES ('default', 'CachorroQuente', '3');
-INSERT INTO Produtos VALUES ('default', 'Pirulito', '6');
-INSERT INTO Produtos VALUES ('default', 'ChocolateTrento', '7');
-INSERT INTO Produtos VALUES ('default', 'OuroBranco', '10');
-INSERT INTO Produtos VALUES ('default', 'Halls', '4');
-INSERT INTO Produtos VALUES ('default', 'PipocaDoce', '8');
-INSERT INTO Produtos VALUES ('default', 'Mentos', '7');
-INSERT INTO Produtos VALUES ('default', 'BatataFrita', '5');
-INSERT INTO Produtos VALUES ('default', 'PratoFeito', '9');
-INSERT INTO Produtos VALUES ('default', 'Macarrão', '6');
-INSERT INTO Produtos VALUES ('default', 'SucoNatural', '3');
-INSERT INTO Produtos VALUES ('default', 'Refrigerante', '10');
-INSERT INTO Produtos VALUES ('default', 'Água', '4');
+INSERT INTO Produtos (produto, preco) VALUES 
+('Porção de Coxinha', 7.00),
+('Pão de Queijo', 4.00),
+('Pão de Queijo Recheado', 8.00),
+('Hamburguer', 5.00),
+('Cachorro Quente', 9.00),
+('Pirulito', 3.00),
+('Chocolate Trento', 6.00),
+('Ouro Branco', 7.00),
+('Halls', 10.00),
+('Pipoca Doce', 4.00),
+('Mentos', 8.00),
+('Batata Frita', 7.00),
+('Prato Feito', 5.00),
+('Macarrão', 9.00),
+('Suco Natural', 6.00),
+('Refrigerante', 3.00),
+('Água', 10.00);
