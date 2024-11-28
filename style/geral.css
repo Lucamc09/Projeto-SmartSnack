@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Fredoka", sans-serif;
+}
+
+body{
+    background-color: #E2F1E5;
+}
+
+a {
+    color: inherit; /* Retira a cor roxa e herda a cor do elemento pai */
+    text-decoration: none; /* Remove o sublinhado */
+}

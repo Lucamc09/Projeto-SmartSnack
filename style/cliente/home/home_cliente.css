@@ -1,0 +1,276 @@
+header{
+    width: 100%;
+    background-color: #244B2A;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #E2F1E5;
+}
+
+svg{
+    height: 40px;
+    fill: #E2F1E5;
+}
+
+hr{
+    width: 80px;
+    background-color: #244B2A;
+    height: 6px;
+    border-radius: 10px;
+    border: none;
+}
+
+.div-header{
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+}
+
+.div-header2{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+section{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: #244B2A;
+    justify-content: center;
+    justify-content: space-between;
+    height: 600px;
+}
+
+img{
+    width: 500px;
+    height: 350px;
+}
+
+.img-direita{
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-top: 10px solid #AFD8B5;
+    border-left: 10px solid #AFD8B5;
+    border-bottom: 10px solid #AFD8B5;
+}
+.img-esquerda{
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-top: 10px solid #AFD8B5;
+    border-right: 10px solid #AFD8B5;
+    border-bottom: 10px solid #AFD8B5;
+}
+
+
+.span-titulo{
+    font-size: 50px;
+}
+
+.span-mensagem{
+    font-size: 20px;
+}
+
+.botao-verde{
+    background-color: #244B2A;
+    width: 130px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 25px;
+    color: #E2F1E5;
+}
+
+.section-perfil{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+    text-align: left;
+    padding: 20px;
+    gap: 20px;
+}
+
+.section-perfil2{
+    width: 50%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.section-cardapio{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+    text-align: right;
+    padding: 20px;
+    gap: 20px;
+}
+
+.section-cardapio2{
+    width: 50%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+.svg-verde{
+    fill:#244B2A;
+    height: 20px;
+}
+
+.num-contato{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #AFD8B5;
+    border-radius: 10px;
+    height: 40px;
+    width: 130px;
+}
+
+.section-contato{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+    text-align: left;
+    padding: 20px;
+    gap: 20px;
+}
+
+.section-contato2{
+    width: 50%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+@media screen and (max-width: 846px){
+    
+    .span-titulo{
+        font-size: 35px;
+    }
+    
+    .span-mensagem{
+        font-size: 15px;
+    }
+
+    img{
+        width: 350px;
+        height: 250px;
+    }
+    
+    .botao-verde{
+        background-color: #244B2A;
+        width: 120px;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        color: #E2F1E5;
+    }
+    .svg-verde{
+        fill:#244B2A;
+        height: 15px;
+    }
+    .img-direita{
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        border-top: 10px solid #AFD8B5;
+        border-left: 10px solid #AFD8B5;
+        border-bottom: 10px solid #AFD8B5;
+    }
+    .img-esquerda{
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border-top: 10px solid #AFD8B5;
+        border-right: 10px solid #AFD8B5;
+        border-bottom: 10px solid #AFD8B5;
+    }
+    .num-contato{
+        height: 35px;
+        width: 120px;
+    }
+
+
+}
+
+@media screen and (max-width: 620px){
+    
+    .span-titulo{
+        font-size: 25px;
+    }
+    
+    .span-mensagem{
+        font-size: 10px;
+    }
+
+    img{
+        width: 200px;
+        height: 150px;
+    }
+    
+    .botao-verde{
+        background-color: #244B2A;
+        width: 110px;
+        height: 25px;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        color: #E2F1E5;
+    }
+    .svg-verde{
+        fill:#244B2A;
+        height: 10px;
+    }
+
+    svg{
+        height: 25px;
+        fill: #E2F1E5;
+    }
+
+    .div-header{
+        font-size: 20px;
+    }
+    section{
+        height: 500px;
+    }
+
+    .img-direita{
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        border-top: 10px solid #AFD8B5;
+        border-left: 10px solid #AFD8B5;
+        border-bottom: 10px solid #AFD8B5;
+    }
+    .img-esquerda{
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border-top: 10px solid #AFD8B5;
+        border-right: 10px solid #AFD8B5;
+        border-bottom: 10px solid #AFD8B5;
+    }
+
+    .num-contato{
+        height: 30px;
+        width: 110px;
+        font-size: 15px;
+    }
+
+}
