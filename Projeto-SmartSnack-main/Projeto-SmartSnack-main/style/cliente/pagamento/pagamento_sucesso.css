@@ -1,0 +1,165 @@
+header{
+    width: 100%;
+    background-color: #244B2A;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #E2F1E5;
+}
+
+svg{
+    height: 40px;
+    fill: #E2F1E5;
+}
+
+hr{
+    width: 80px;
+    background-color: #244B2A;
+    height: 6px;
+    border-radius: 10px;
+    border: none;
+}
+
+.div-header{
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+}
+
+.div-header2{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+hr{
+    width: 80px;
+    background-color: #244B2A;
+    height: 6px;
+    border-radius: 10px;
+    border: none;
+}
+
+section{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: #244B2A;
+    justify-content: center;
+    height: 150px;
+    flex-direction: column;
+    gap: 20px;
+}
+.span-titulo{
+    font-size: 50px;
+}
+
+.section-pagamento{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 600px;
+}
+.div-pagamento{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    color: #244B2A;
+    height: 500px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 100px;
+    text-align: center;
+    background-color: #AFD8B5;
+    border-radius: 20px;
+    font-size: 30px;
+    border: 2px solid #244B2A;
+    overflow-wrap: break-word; 
+    word-wrap: break-word; 
+    word-break: break-all; 
+}
+
+
+.botao-verde{
+    background-color: #244B2A;
+    width: 120px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #E2F1E5;
+}
+
+.svg-verde{
+    fill: #244B2A;
+    height: 90px;
+}
+
+
+@media screen and (max-width: 1170px){
+
+    .div-pagamento{
+        width: 60%;
+    }
+    .span-titulo{
+        font-size: 45px;
+    }
+    .svg-verde{
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 880px){
+
+    .div-pagamento{
+        width: 70%;
+    }
+    .span-titulo{
+        font-size: 40px;
+    }
+    .svg-verde{
+        height: 70px;
+    }
+}
+
+
+@media screen and (max-width: 670px){
+    svg{
+        height: 25px;
+        fill: #E2F1E5;
+    }
+    .div-header{
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+    }
+    .span-titulo{
+        font-size: 30px;
+    }
+    .div-pagamento{
+        width: 80%;
+    }
+    .svg-verde{
+        height: 60px;
+    }
+}
+
+
+@media screen and (max-width: 445px){
+
+    .span-titulo{
+        font-size: 25px;
+    }
+    .div-pagamento{
+        width: 90%;
+    }
+    .svg-verde{
+        height: 50px;
+    }
+}
